@@ -9,7 +9,57 @@
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-  <h1>Hello world!</h1>
+  <div class="mobile-container">
+    <header class="header">
+      <input type="text" class="header__input">
+      <button class="header__search-btn">Search</button>
+    </header>
+
+    <div class="fav-container">
+      <h3 class="fav-container__title">Favorite Meals</h3>
+      <ul class="fav-container__list">
+        <li class="fav-container__list-item">
+          <img src="https://www.themealdb.com/images/ingredients/Lime.png" alt="lime">
+          <span>Lime</span>
+        </li>
+
+        <li class="fav-container__list-item">
+          <img src="https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview" alt="carbonara">
+          <span>Carbonara</span>
+        </li>
+
+        <li class="fav-container__list-item">
+          <img src="https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview" alt="carbonara">
+          <span>Carbonara</span>
+        </li>
+
+        <li class="fav-container__list-item">
+          <img src="https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview" alt="carbonara">
+          <span>Carbonara</span>
+        </li>
+
+        <li class="fav-container__list-item">
+          <img src="https://www.themealdb.com/images/media/meals/rvxxuy1468312893.jpg" alt="lasagna">
+          <span>Lasagna</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="meals">
+      <div class="meal">
+        <span class="meal__title">Random Recipe</span>
+        <div class="meal__header">
+          <img src="https://www.themealdb.com//images//media//meals//svprys1511176755.jpg" alt="">
+        </div>
+
+        <div class="meal__content">
+          <h4 class="meal__title">Veggie Veggies</h4>
+          <button class="meal__add-to-fav-btn">Fav</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
   <script src="js/index.js" defer></script>
 </body>
 </html>

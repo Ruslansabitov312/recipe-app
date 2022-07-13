@@ -16,7 +16,25 @@ a
     font-weight: normal
 
 body
+  background: #ECE9E6
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6)
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6)
   padding: 0
   margin: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  min-height: 100vh
+
+img
+  max-width: 100%
+
+.mobile-container
+  width: 400px
+  background-color: $white-color
+  box-shadow: 0 0 10px 2px #3333331A
+  border-radius: 10px
+  overflow: hidden
   
-@import './blocks/recipe'
+@import './blocks/header'
+@import './blocks/favContainer'
