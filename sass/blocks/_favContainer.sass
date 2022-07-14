@@ -15,12 +15,31 @@
     &-item
       margin: 5px
       width: 75px
+      position: relative
       & > img
-        border: 2px solid #ffffff
+        border: 2px solid $white-color
         border-radius: 50%
         box-shadow: 0 0 10px 2px #3333331a
         object-fit: cover
         width: 70px
         height: 70px
       & > span
+        display: inline-block
         font-size: 0.9rem
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        width: 75px
+  &__delete-btn
+    color: $white-color
+    background-color: $red-color
+    border-radius: 50%
+    border: 1px solid $white-color
+    cursor: pointer
+    position: absolute
+    top: -0.3rem
+    right: -0.3rem
+    font-size: 1.2rem
+    opacity: 0
+.fav-container__list-item:hover .fav-container__delete-btn
+  opacity: 1
