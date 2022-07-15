@@ -27,17 +27,21 @@
   &__title
     margin: 0
   &__add-to-fav-btn
-    border: none
-    background-color: transparent
-    color: $gray-color
+    width: 70px
+    height: 25px
+    border-radius: 50px
+    border: solid 1px $blush-color
+    color: $blush-color
+    font-weight: 500
+    font-size: 16px
+    line-height: 19px
     cursor: pointer
-    font-size: 1.2rem
+    transition: .3s
+    &:hover
+      transform: scale(1.1)
+      transition: .3s
     &.active
-      color: $purple-color
-      background: #CC95C0
-      background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0)
-      background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0)
-      border-radius: 8px
-
-
-
+      background-color: $blush-color
+      color: $white-color
+      transition: .3s
+      box-shadow: 0 17px 54px rgba(245, 56, 56, 0.35)
