@@ -1,6 +1,8 @@
 const mealsEl = document.querySelector('.meals')
 const favoriteContainer = document.querySelector('.fav-container__list')
-
+const mealPopup = document.querySelector('.popup-container')
+const popupCloseBtn = document.querySelector('.popup__close-btn')
+const mealInfoEl = document.querySelector('.meal-info')
 const searchTerm = document.querySelector('.header__input')
 const searchBtn = document.querySelector('.header__search-btn')
 
@@ -39,8 +41,6 @@ async function getMealsBySearch(term) {
 }
 
 function addMeal(mealData, random = false) {
-  console.log(mealData)
-
   const meal = document.createElement('div')
   meal.classList.add('meal')
 
@@ -68,6 +68,10 @@ function addMeal(mealData, random = false) {
     }
 
     fetchFavMeals()
+  })
+
+  meal.addEventListener('click', () => {
+    showMealInfo(mealData)
   })
 
   mealsEl.appendChild(meal)
@@ -113,7 +117,10 @@ function addMealFav(mealData) {
   favMeal.classList.add('fav-container__list-item')
 
   favMeal.innerHTML = `
-    <img src="${mealData.strMealThumb}" alt="${mealData.strMeal}">
+    <img 
+      src="${mealData.strMealThumb}" 
+      alt="${mealData.strMeal}"
+    >
     <span>${mealData.strMeal}</span>
     <button class="fav-container__delete-btn">&#10006</button>
   `
@@ -125,7 +132,56 @@ function addMealFav(mealData) {
     fetchFavMeals()
   })
 
+  favMeal.addEventListener('click', () => {
+    showMealInfo(mealData)
+  })
+
   favoriteContainer.appendChild(favMeal)
+}
+
+function showMealInfo(mealData) {
+  // очистить всп. окно
+  mealInfoEl.innerHTML = ''
+
+  // обновить ифнормацию о блюде
+  const mealEl = document.createElement('div')
+
+  const ingredients = []
+  // получить ингредиенты и меры
+  for (let i = 1; i < 20; i++) {
+    if (mealData['strIngredient' + i]) {
+      ingredients.push(
+        `${mealData['strIngredient' + i]} - ${mealData['strMeasure' + i]}`
+      )
+    } else {
+      break
+    }
+  }
+
+  mealEl.innerHTML = `
+    <h1 class="meal-info__title">${mealData.strMeal}</h1>
+    <img
+      src="${mealData.strMealThumb}" 
+      alt="${mealData.strMealThumb}" 
+      class="meal-info__img"
+    >
+    <p class="meal-info__text">${mealData.strInstructions}</p>
+    <h3>Ingredients:</h3>
+    <ul class="meal-info__list">
+      ${ingredients
+        .map(
+          (ing) => `
+        <li class="meal-info__list-item">${ing}</li>
+      `
+        )
+        .join('')}
+    </ul>
+  `
+
+  mealInfoEl.appendChild(mealEl)
+
+  //показать всплывающее окно
+  mealPopup.classList.remove('hidden')
 }
 
 searchBtn.addEventListener('click', async () => {
@@ -140,4 +196,8 @@ searchBtn.addEventListener('click', async () => {
       addMeal(meal)
     })
   }
+})
+
+popupCloseBtn.addEventListener('click', () => {
+  mealPopup.classList.add('hidden')
 })

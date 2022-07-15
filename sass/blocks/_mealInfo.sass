@@ -1,0 +1,49 @@
+.popup-container
+  display: flex
+  align-items: center
+  justify-content: center
+  position: fixed
+  background-color: rgba(0, 0, 0, 0.5)
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  &.hidden
+    opacity: 0
+    pointer-events: none
+
+.popup
+  background-color: $white-color
+  max-width: 600px
+  max-height: 100vh
+  overflow: auto
+  padding: 0 2rem
+  border-radius: 5px
+  width: 100%
+  position: relative
+  &__close-btn
+    position: absolute
+    top: 1rem
+    right: 1rem
+    width: 32px
+    height: 32px
+    opacity: 0.3
+    &:hover
+      opacity: 1
+    &:before, &:after
+      position: absolute
+      left: 15px
+      content: ' '
+      height: 33px
+      width: 2px
+      background-color: $purple-color
+    &:before
+      transform: rotate(45deg)
+    &:after
+      transform: rotate(-45deg)
+      
+.meal-info
+  &__title
+    text-align: center
+  &__list-item
+    list-style-type: disc
